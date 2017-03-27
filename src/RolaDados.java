@@ -31,6 +31,7 @@ public class RolaDados {
 		}
 		return novos_valores;
 	}
+	
 	public int[] rolar(boolean[] quais){
 		int[] novos_valores = new int[nDados];
 		for(int i=0; i < nDados; i++){
@@ -50,7 +51,7 @@ public class RolaDados {
 
 		return rolar(b);		
 	}
-	
+
 	@Override
 	public java.lang.String toString(){
 		String[] s = new String[nDados];
