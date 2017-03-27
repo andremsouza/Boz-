@@ -9,20 +9,20 @@ public class Random {
 	private long p = 2147483648l;
 	private long m = 843314861;
 	private long a = 453816693;
-	
-	
+
+
 	private long xi;
 
-/**
- * Retorna um número aleatório no intervalo (0,1[
- * @return o número gerado.
- */
+	/**
+	 * Retorna um número aleatório no intervalo (0,1[
+	 * @return o número gerado.
+	 */
 	public double getRand() {
 		xi = (a + m * xi) % p;
 		double d = xi;
 		return d / p;
 	}
-	
+
 	/**
 	 * Retorna um valor inteiro no intervalo (0,max[
 	 * @param max O valor limite para a geração do número inteiro
@@ -41,7 +41,7 @@ public class Random {
 	 * @param semente o valor da nova semente de geração
 	 */
 	public void setSemente(int semente) {
-       xi = semente;		
+		xi = semente;		
 	}
 
 	/**
@@ -52,12 +52,12 @@ public class Random {
 	{
 		xi = k;
 	}
-	
+
 	/**
 	 * Construtor que usa uma semente aleatória, adquerida usando o método Calendar.getTimeInMillis().
 	 */
 	public Random() {
 		xi = Calendar.getInstance().getTimeInMillis() % p;
 	}
-	
+
 }
