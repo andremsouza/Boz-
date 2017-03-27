@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 public class RolaDados {
@@ -30,7 +31,26 @@ public class RolaDados {
 		}
 		return novos_valores;
 	}
+	public int[] rolar(boolean[] quais){
+		int[] novos_valores = new int[nDados];
+		for(int i=0; i < nDados; i++){
+			if(quais[i]) novos_valores[i] = vetDado[i].rolar();
+			else novos_valores[i] = vetDado[i].getLado();
+		}
+		return novos_valores;
+	}
 
+	public int[] rolar(java.lang.String s){
+		boolean[] b = new boolean[nDados];
+		String[] r = s.split(" ");
+
+		Arrays.fill(b, false);
+		for(int i=0; i<s.length() - s.replace(" ", "").length()+1; i++)
+			if(Integer.parseInt(r[i])-1 < nDados) b[Integer.parseInt(r[i])-1] = true;
+
+		return rolar(b);		
+	}
+	
 	@Override
 	public java.lang.String toString(){
 		String[] s = new String[nDados];
@@ -46,5 +66,4 @@ public class RolaDados {
 		}
 		return r;
 	}
-
 }
