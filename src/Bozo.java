@@ -4,7 +4,6 @@ public class Bozo {
 		String entrada;
 		RolaDados r = new RolaDados(5);
 		Placar p = new Placar();
-		int total=0;
 		for(int i=0; i<10; i++){
 			System.out.println("Pressione ENTER para iniciar a rodada: ");
 			while(EntradaTeclado.leString().length()!=0);
@@ -23,8 +22,7 @@ public class Bozo {
 			int posIn = EntradaTeclado.leInt();
 			p.add(posIn, dados);
 			System.out.printf("%s\n", p.toString());
-			total += p.getScore();
 		}
-		System.out.println("Placar final: "+total); //bug?
+		System.out.println("Placar final: "+ p.getScore());
 	}
 }
