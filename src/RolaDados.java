@@ -7,9 +7,6 @@ public class RolaDados {
 	private Dado[] vetDado;
 	private Random r = new Random(); 
 
-	public static void main(java.lang.String[] args) throws java.lang.Exception{
-	}
-
 	public RolaDados(int n){
 		nDados = n;
 		vetDado = new Dado[n];					//Cria o vetor de dados de tamanho N
@@ -46,6 +43,7 @@ public class RolaDados {
 		String[] r = s.split(" ");
 
 		Arrays.fill(b, false);
+		if(s.length() == 0 || !Character.isDigit(s.charAt(0))) return rolar(b);
 		for(int i=0; i<s.length() - s.replace(" ", "").length()+1; i++)
 			if(Integer.parseInt(r[i])-1 < nDados) b[Integer.parseInt(r[i])-1] = true;
 
