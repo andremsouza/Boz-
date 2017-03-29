@@ -48,6 +48,10 @@ public class Bozo {
 				try{
 					System.out.print("Digite a posição que você quer ocupar: ");
 					posIn = EntradaTeclado.leInt();
+					if(posIn <= 0){
+						System.out.println("Valor inválido.Digite novamente.");
+						continue;
+					}
 				}catch(Exception eIn){
 					System.out.println("Valor inválido.Digite novamente.");
 					continue;
