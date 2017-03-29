@@ -1,16 +1,34 @@
 import java.util.Arrays;
 
-
+/**
+ * Esta classe representa o placar de um jogo de Bozó. 
+ * Permite que combinações de dados sejam alocadas às posições e mantém o escore de um jogador.
+ * @author andre.moreira.souza@usp.br, guilherme.menegali@usp.br
+ *
+ */
 public class Placar {
 	//parametros para geração
 	private int[] pontos = new int[10];
 	private boolean[] pos = new boolean[10];
 	//Constructors
+	
+	/**
+	 * Preenche os arrays com valores padrões
+	 */
 	public Placar(){
 		Arrays.fill(pontos, 0);
 		Arrays.fill(pos, false);
 	}
 	//Methods
+	/**
+	 * Adiciona uma sequencia de dados em uma determinada posição do placar. 
+	 * Após a chamada, aquela posição torna-se ocupada e não pode ser usada uma segunda vez.
+	 * @param posicao - Posição a ser preenchida. As posições 1 a 6 correspondem às quantidas de uns até seis, ou seja, as laterais do placar. As outas posições são: 7 - full hand; 8 - sequencia; 9 - quadra; e 10 - quina
+	 * @param dados - um array de inteiros, de tamanho 5. 
+	 * Cada posição corresponde a um valor de um dado. 
+	 * Supões-se que cada dado pode ter valor entre 1 e 6.
+	 * @throws java.lang.IllegalArgumentException
+	 */
 	public void add(int posicao, int[] dados) throws java.lang.IllegalArgumentException{
 		int[] hash = new int[6];
 		Arrays.fill(hash, 0);
@@ -64,13 +82,29 @@ public class Placar {
 			break;
 		}
 	}
-
+	
+	/**
+	 * Computa a soma dos valores obtidos, considerando apenas as posições que já estão ocupadas.
+	 * @return O valor da soma.
+	 */
 	public int getScore(){
 		int result=0;
 		for(int i=0; i<10; i++) result += pontos[i];
 		return result;
 	}
 
+	/**
+	 * A representação na forma de string, mostra o placar completo, indicando quais são as posições livres (com seus respectivos números) e o valor obtido nas posições já ocupadas. Por exemplo: 
+	 * (1)    |   (7)    |   (4) 
+	 * --------------------------
+	 * (2)    |   20     |   (5) 
+	 * --------------------------
+	 * (3)    |   30     |   (6) 
+	 * --------------------------
+	 *        |   (10)   |
+	 *        +----------+ 
+	 *mostra as posições 8 (sequencia) e 9 (quadra) ocupadas.
+	 */
 	@Override
 	public java.lang.String toString(){
 		String s="";
